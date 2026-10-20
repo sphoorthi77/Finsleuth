@@ -1,0 +1,49 @@
+{
+  "filename": "Fraud Detection Dataset-bmJaU4.zip",
+  "rows": 1000000,
+  "columns": [
+    "transaction_id",
+    "timestamp",
+    "customer_id",
+    "card_id",
+    "device_id",
+    "ip_address",
+    "merchant_id",
+    "merchant_category",
+    "merchant_country",
+    "merchant_city",
+    "merchant_latitude",
+    "merchant_longitude",
+    "transaction_type",
+    "amount",
+    "currency",
+    "is_fraud",
+    "fraud_type"
+  ],
+  "label_counts": {
+    "0": 998510,
+    "1": 1490
+  },
+  "missing": {
+    "transaction_id": 0,
+    "timestamp": 0,
+    "customer_id": 0,
+    "card_id": 0,
+    "device_id": 0,
+    "ip_address": 0,
+    "merchant_id": 0,
+    "merchant_category": 0,
+    "merchant_country": 0,
+    "merchant_city": 0,
+    "merchant_latitude": 0,
+    "merchant_longitude": 0,
+    "transaction_type": 0,
+    "amount": 0,
+    "currency": 0,
+    "is_fraud": 0,
+    "fraud_type": 998510
+  },
+  "duplicate_rows": 0,
+  "duplicate_transaction_ids": 0,
+  "status": "Not used for model training or substituted for the banking archive in this release. Different timestamp/amount schema, USD currency and no sender/recipient pairs. Raw fraud_type is an outcome and must not be a predictive feature. Provenance is not established by the supplied file."
+}

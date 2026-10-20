@@ -1,0 +1,176 @@
+{
+  "reports": [
+    {
+      "experiment": "Context + history / unweighted",
+      "features": [
+        "transaction_amount",
+        "credit_score",
+        "emi_amount",
+        "transaction_hour",
+        "previous_count",
+        "previous_mean_amount",
+        "previous_amount",
+        "seconds_since_previous",
+        "relative_to_history",
+        "account_type",
+        "transaction_type",
+        "transaction_direction",
+        "merchant_category",
+        "state",
+        "has_loan",
+        "loan_type",
+        "channel",
+        "kyc_status",
+        "weekday",
+        "log_amount",
+        "hour_sin",
+        "hour_cos"
+      ],
+      "excluded": [
+        "transaction_id",
+        "raw customer_id",
+        "is_fraud",
+        "post-transaction account_balance",
+        "transaction_status"
+      ],
+      "training_rows": 384625,
+      "early_stopping_validation_rows": 41339,
+      "threshold_validation_rows": 41340,
+      "test_rows": 82696,
+      "threshold_policy": "Maximize validation recall subject to accuracy >=85%; no test-threshold selection",
+      "threshold": 0.009005563434091127,
+      "validation": {
+        "precision": 0.012729124236252547,
+        "recall": 0.20435967302452315,
+        "f1": 0.023965489694839432,
+        "pr_auc": 0.020996922118015543,
+        "roc_auc": 0.5242211409108317,
+        "specificity": 0.8580284577648696,
+        "false_positive_rate": 0.14197154223513045,
+        "accuracy": 0.8522254475084664,
+        "brier_score": 0.008756344460752491,
+        "confusion_matrix": [
+          [
+            35156,
+            5817
+          ],
+          [
+            292,
+            75
+          ]
+        ]
+      },
+      "test": {
+        "precision": 0.012009450059062869,
+        "recall": 0.2527624309392265,
+        "f1": 0.022929457461470994,
+        "pr_auc": 0.01810542540350843,
+        "roc_auc": 0.5581435737523095,
+        "specificity": 0.8163397257600156,
+        "false_positive_rate": 0.18366027423998438,
+        "accuracy": 0.8114056302602303,
+        "brier_score": 0.008638440636122081,
+        "confusion_matrix": [
+          [
+            66917,
+            15055
+          ],
+          [
+            541,
+            183
+          ]
+        ]
+      },
+      "trees": 109,
+      "joint_85_percent_target_met": false,
+      "evaluation_note": "Chronological split; same previously evaluated test partition. Historical features include no labels and use preceding customer records. Evaluation is repeated, not fresh independent evidence."
+    },
+    {
+      "experiment": "Context + history / balanced",
+      "features": [
+        "transaction_amount",
+        "credit_score",
+        "emi_amount",
+        "transaction_hour",
+        "previous_count",
+        "previous_mean_amount",
+        "previous_amount",
+        "seconds_since_previous",
+        "relative_to_history",
+        "account_type",
+        "transaction_type",
+        "transaction_direction",
+        "merchant_category",
+        "state",
+        "has_loan",
+        "loan_type",
+        "channel",
+        "kyc_status",
+        "weekday",
+        "log_amount",
+        "hour_sin",
+        "hour_cos"
+      ],
+      "excluded": [
+        "transaction_id",
+        "raw customer_id",
+        "is_fraud",
+        "post-transaction account_balance",
+        "transaction_status"
+      ],
+      "training_rows": 384625,
+      "early_stopping_validation_rows": 41339,
+      "threshold_validation_rows": 41340,
+      "test_rows": 82696,
+      "threshold_policy": "Maximize validation recall subject to accuracy >=85%; no test-threshold selection",
+      "threshold": 0.4884131762669008,
+      "validation": {
+        "precision": 0.015077902496230524,
+        "recall": 0.2452316076294278,
+        "f1": 0.028409090909090908,
+        "pr_auc": 0.018209410666944186,
+        "roc_auc": 0.5579020569869532,
+        "specificity": 0.8565152661508798,
+        "false_positive_rate": 0.14348473384912014,
+        "accuracy": 0.851088534107402,
+        "brier_score": 0.23094307239019202,
+        "confusion_matrix": [
+          [
+            35094,
+            5879
+          ],
+          [
+            277,
+            90
+          ]
+        ]
+      },
+      "test": {
+        "precision": 0.012786527366287229,
+        "recall": 0.2265193370165746,
+        "f1": 0.024206642066420665,
+        "pr_auc": 0.019078625892661436,
+        "roc_auc": 0.545191249781289,
+        "specificity": 0.8455326208949397,
+        "false_positive_rate": 0.15446737910506025,
+        "accuracy": 0.8401131856438038,
+        "brier_score": 0.23024371732156537,
+        "confusion_matrix": [
+          [
+            69310,
+            12662
+          ],
+          [
+            560,
+            164
+          ]
+        ]
+      },
+      "trees": 39,
+      "joint_85_percent_target_met": false,
+      "evaluation_note": "Chronological split; same previously evaluated test partition. Historical features include no labels and use preceding customer records. Evaluation is repeated, not fresh independent evidence."
+    }
+  ],
+  "elapsed_seconds": 465.8544509410858,
+  "training_source": "Original archive.zip read directly with zipfile; no synthetic training samples"
+}

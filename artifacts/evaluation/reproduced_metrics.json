@@ -1,0 +1,380 @@
+{
+  "source_sha256": "c11e7924d2bc5f89f59f1fa39d23403ef16c8319898fb06c12b158f3fd4261c1",
+  "quality": {
+    "rows": 550000,
+    "columns": [
+      "transaction_id",
+      "customer_id",
+      "transaction_date",
+      "transaction_time",
+      "account_type",
+      "transaction_type",
+      "transaction_amount",
+      "transaction_direction",
+      "account_balance",
+      "merchant_category",
+      "state",
+      "credit_score",
+      "has_loan",
+      "loan_type",
+      "emi_amount",
+      "transaction_status",
+      "channel",
+      "kyc_status",
+      "is_fraud",
+      "transaction_hour"
+    ],
+    "missing": {
+      "transaction_id": 0,
+      "customer_id": 0,
+      "transaction_date": 0,
+      "transaction_time": 0,
+      "account_type": 0,
+      "transaction_type": 0,
+      "transaction_amount": 0,
+      "transaction_direction": 0,
+      "account_balance": 0,
+      "merchant_category": 0,
+      "state": 0,
+      "credit_score": 0,
+      "has_loan": 0,
+      "loan_type": 377134,
+      "emi_amount": 0,
+      "transaction_status": 0,
+      "channel": 0,
+      "kyc_status": 0,
+      "is_fraud": 0,
+      "transaction_hour": 0
+    },
+    "duplicates": 0,
+    "invalid_rows": 0,
+    "valid_rows": 550000,
+    "label_counts": {
+      "0": 545127,
+      "1": 4873
+    },
+    "errors": [],
+    "valid": true,
+    "policy": "Reject entire import on validation errors. No rows removed or labels changed."
+  },
+  "test_rows": 82696,
+  "test_fraud_count": 724,
+  "reports": [
+    {
+      "algorithm": "Logistic Regression",
+      "version": "6dee8b2598c14ae8ae6335125e9dd07e",
+      "threshold": 0.00857338587357064,
+      "metrics": {
+        "precision": 0.008927727916863486,
+        "recall": 0.7831491712707183,
+        "f1": 0.017654201824578882,
+        "pr_auc": 0.01706642515906097,
+        "roc_auc": 0.5418123756986957,
+        "specificity": 0.23214024300980823,
+        "false_positive_rate": 0.7678597569901918,
+        "accuracy": 0.23696430298926188,
+        "brier_score": 0.008692234196779468,
+        "confusion_matrix": [
+          [
+            19029,
+            62943
+          ],
+          [
+            157,
+            567
+          ]
+        ]
+      },
+      "false_alerts": 62943,
+      "review_budgets": {
+        "0.01": {
+          "review_count": 827,
+          "frauds_found": 57,
+          "recall": 0.0787292817679558,
+          "false_alerts": 770,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.02": {
+          "review_count": 1654,
+          "frauds_found": 78,
+          "recall": 0.10773480662983426,
+          "false_alerts": 1576,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.05": {
+          "review_count": 4135,
+          "frauds_found": 104,
+          "recall": 0.143646408839779,
+          "false_alerts": 4031,
+          "tie_policy": "stable original timestamp order"
+        }
+      },
+      "false_negatives": {
+        "count": 157,
+        "by_channel": {
+          "Mobile_App": 84,
+          "ATM": 25,
+          "API": 18,
+          "Web": 15,
+          "POS_Terminal": 9,
+          "Branch": 6
+        },
+        "amount_median": 1956.39
+      },
+      "maximum_absolute_metric_difference": 0.0
+    },
+    {
+      "algorithm": "Random Forest",
+      "version": "5d984f32c4394faca0c7db59c8a0044d",
+      "threshold": 0.006690453301557369,
+      "metrics": {
+        "precision": 0.008934118273526019,
+        "recall": 0.8342541436464088,
+        "f1": 0.017678911166398362,
+        "pr_auc": 0.018176607017141272,
+        "roc_auc": 0.5285308226121141,
+        "specificity": 0.18262333479724785,
+        "false_positive_rate": 0.8173766652027522,
+        "accuracy": 0.18832833510689756,
+        "brier_score": 0.008643374174672286,
+        "confusion_matrix": [
+          [
+            14970,
+            67002
+          ],
+          [
+            120,
+            604
+          ]
+        ]
+      },
+      "false_alerts": 67002,
+      "review_budgets": {
+        "0.01": {
+          "review_count": 827,
+          "frauds_found": 60,
+          "recall": 0.08287292817679558,
+          "false_alerts": 767,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.02": {
+          "review_count": 1654,
+          "frauds_found": 72,
+          "recall": 0.09944751381215469,
+          "false_alerts": 1582,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.05": {
+          "review_count": 4135,
+          "frauds_found": 90,
+          "recall": 0.12430939226519337,
+          "false_alerts": 4045,
+          "tie_policy": "stable original timestamp order"
+        }
+      },
+      "false_negatives": {
+        "count": 120,
+        "by_channel": {
+          "Mobile_App": 42,
+          "ATM": 26,
+          "API": 17,
+          "Branch": 15,
+          "Web": 12,
+          "POS_Terminal": 8
+        },
+        "amount_median": 3061.2250000000004
+      },
+      "maximum_absolute_metric_difference": 0.0
+    },
+    {
+      "algorithm": "XGBoost",
+      "version": "a841985f242543d08ea73d1b163107e3",
+      "threshold": 0.00723021845513523,
+      "metrics": {
+        "precision": 0.008697299259703566,
+        "recall": 0.761049723756906,
+        "f1": 0.017198058585764002,
+        "pr_auc": 0.017986806989400195,
+        "roc_auc": 0.5339422681859025,
+        "specificity": 0.23386034255599472,
+        "false_positive_rate": 0.7661396574440053,
+        "accuracy": 0.2384758634033085,
+        "brier_score": 0.008646951713507784,
+        "confusion_matrix": [
+          [
+            19170,
+            62802
+          ],
+          [
+            173,
+            551
+          ]
+        ]
+      },
+      "false_alerts": 62802,
+      "review_budgets": {
+        "0.01": {
+          "review_count": 827,
+          "frauds_found": 59,
+          "recall": 0.08149171270718232,
+          "false_alerts": 768,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.02": {
+          "review_count": 1654,
+          "frauds_found": 69,
+          "recall": 0.09530386740331492,
+          "false_alerts": 1585,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.05": {
+          "review_count": 4135,
+          "frauds_found": 90,
+          "recall": 0.12430939226519337,
+          "false_alerts": 4045,
+          "tie_policy": "stable original timestamp order"
+        }
+      },
+      "false_negatives": {
+        "count": 173,
+        "by_channel": {
+          "Mobile_App": 72,
+          "Web": 23,
+          "API": 21,
+          "ATM": 21,
+          "Branch": 19,
+          "POS_Terminal": 17
+        },
+        "amount_median": 1528.81
+      },
+      "maximum_absolute_metric_difference": 0.0
+    },
+    {
+      "algorithm": "CatBoost",
+      "version": "3bb22e952f17453e83dc6f48571b35f7",
+      "threshold": 0.007381775299357199,
+      "metrics": {
+        "precision": 0.008765083748574173,
+        "recall": 0.8066298342541437,
+        "f1": 0.017341727045967453,
+        "pr_auc": 0.01881811372038614,
+        "roc_auc": 0.5442897072656261,
+        "specificity": 0.19431025228126678,
+        "false_positive_rate": 0.8056897477187333,
+        "accuracy": 0.19967108445390344,
+        "brier_score": 0.008640211614905835,
+        "confusion_matrix": [
+          [
+            15928,
+            66044
+          ],
+          [
+            140,
+            584
+          ]
+        ]
+      },
+      "false_alerts": 66044,
+      "review_budgets": {
+        "0.01": {
+          "review_count": 827,
+          "frauds_found": 55,
+          "recall": 0.07596685082872928,
+          "false_alerts": 772,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.02": {
+          "review_count": 1654,
+          "frauds_found": 75,
+          "recall": 0.10359116022099447,
+          "false_alerts": 1579,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.05": {
+          "review_count": 4135,
+          "frauds_found": 89,
+          "recall": 0.12292817679558012,
+          "false_alerts": 4046,
+          "tie_policy": "stable original timestamp order"
+        }
+      },
+      "false_negatives": {
+        "count": 140,
+        "by_channel": {
+          "Mobile_App": 63,
+          "Web": 22,
+          "API": 17,
+          "Branch": 16,
+          "ATM": 15,
+          "POS_Terminal": 7
+        },
+        "amount_median": 3238.7749999999996
+      },
+      "maximum_absolute_metric_difference": 0.0
+    },
+    {
+      "algorithm": "Hybrid (CatBoost + Random Forest)",
+      "version": "96e973aa8b2e4d0194ff676ff760fb32",
+      "threshold": 0.009848641720950936,
+      "metrics": {
+        "precision": 0.013492968453059672,
+        "recall": 0.19613259668508287,
+        "f1": 0.025248933143669987,
+        "pr_auc": 0.01883361705874044,
+        "roc_auc": 0.5368995928538326,
+        "specificity": 0.8733469965354024,
+        "false_positive_rate": 0.12665300346459768,
+        "accuracy": 0.8674180129631421,
+        "brier_score": 0.008638620626876953,
+        "confusion_matrix": [
+          [
+            71590,
+            10382
+          ],
+          [
+            582,
+            142
+          ]
+        ]
+      },
+      "false_alerts": 10382,
+      "review_budgets": {
+        "0.01": {
+          "review_count": 827,
+          "frauds_found": 57,
+          "recall": 0.0787292817679558,
+          "false_alerts": 770,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.02": {
+          "review_count": 1654,
+          "frauds_found": 76,
+          "recall": 0.10497237569060773,
+          "false_alerts": 1578,
+          "tie_policy": "stable original timestamp order"
+        },
+        "0.05": {
+          "review_count": 4135,
+          "frauds_found": 89,
+          "recall": 0.12292817679558012,
+          "false_alerts": 4046,
+          "tie_policy": "stable original timestamp order"
+        }
+      },
+      "false_negatives": {
+        "count": 582,
+        "by_channel": {
+          "Mobile_App": 236,
+          "Web": 111,
+          "POS_Terminal": 64,
+          "ATM": 64,
+          "Branch": 59,
+          "API": 48
+        },
+        "amount_median": 2053.825
+      },
+      "maximum_absolute_metric_difference": 0.0
+    }
+  ],
+  "note": "Repeated evaluation of an already used historical test split, not a new untouched test. Budget and false-negative analysis are diagnostics, not used to select thresholds."
+}

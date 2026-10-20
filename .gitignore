@@ -1,0 +1,17 @@
+.env
+*.db
+*.db-*
+__pycache__/
+.pytest_cache/
+node_modules/
+frontend/dist/
+.venv/
+artifacts/runtime/
+data/raw/
+
+test-results/
+playwright-report/
+*.tsbuildinfo
+
+LOCAL_ADMIN.txt
+backend/.env

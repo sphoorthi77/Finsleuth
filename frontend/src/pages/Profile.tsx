@@ -1,0 +1,4 @@
+import { Badge,Heading,labels,useAuth } from '../components/shared';
+import { AccountSettings } from '../Extras';
+
+export function Profile(){const {user,setUser}=useAuth();return <><Heading title="Your profile" subtitle="Your authenticated identity and current workspace permissions."/><section className="panel profile"><span className="avatar large">{user?.name[0]}</span><h2>{user?.name}</h2><Badge tone="mint">{labels[user!.role]}</Badge><dl className="facts"><dt>Email</dt><dd>{user?.email}</dd><dt>Organisation</dt><dd>{user?.organisation}</dd><dt>Access status</dt><dd>{user?.status}</dd><dt>Session</dt><dd>8-hour expiring, server-revocable session</dd><dt>Data scope</dt><dd>{user?.scope.startsWith('demo-')?'Isolated uploaded-dataset workspace':'Operational workspace'}</dd></dl></section><AccountSettings user={user!} onUpdate={setUser}/></>}

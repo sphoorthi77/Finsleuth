@@ -1,0 +1,5 @@
+{
+  "method": "Isolation Forest",
+  "test_average_precision": 0.016667519799367536,
+  "warning": "Anomaly score is not a fraud probability."
+}
